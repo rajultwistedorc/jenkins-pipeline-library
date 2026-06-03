@@ -1,0 +1,11 @@
+configuration-as-code:1775.v810dc950b_486
+workflow-aggregator:600.vb_7860c979a_33
+pipeline-stage-view:2.34
+git:5.2.2
+docker-workflow:580.vc334e261efb_1
+kubernetes:4306.vc91e951ea_eb_d
+credentials-binding:687.v619cb_15e923f
+slack:751.v2c8b_8e23f33c
+junit:1312.v79a_514b_0a_870
+htmlpublisher:1.36
+job-dsl:1.87

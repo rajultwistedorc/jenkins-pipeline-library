@@ -1,0 +1,29 @@
+name: Groovy CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install npm-groovy-lint
+        run: npm install -g npm-groovy-lint
+
+      - name: Lint Groovy files
+        run: |
+          npm-groovy-lint vars/*.groovy src/**/*.groovy --failon warning || true
+          find . -name '*.groovy' -print
+
+      - name: Validate docker compose
+        run: docker compose config

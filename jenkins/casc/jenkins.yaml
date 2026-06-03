@@ -1,0 +1,34 @@
+jenkins:
+  systemMessage: "DevOps Pipeline Jenkins - Configuration as Code"
+  numExecutors: 2
+  mode: NORMAL
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              scope: GLOBAL
+              id: slack-webhook
+              secret: "${SLACK_WEBHOOK_URL:-}"
+              description: Slack incoming webhook
+
+unclassified:
+  location:
+    url: "http://localhost:8080/"
+
+jobs:
+  - script: >
+      pipelineJob('example-shared-library') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote { url('https://github.com/rajultwistedorc/jenkins-pipeline-library.git') }
+                branches('*/main')
+              }
+            }
+            scriptPath('Jenkinsfile')
+          }
+        }
+      }
