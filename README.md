@@ -31,3 +31,13 @@ Configure the shared library in **Manage Jenkins → Global Pipeline Libraries**
 ## License
 
 MIT
+
+## Live Screenshots
+
+### Jenkins Dashboard
+![Jenkins](screenshots/jenkins.png)
+
+## Live Screenshots
+
+### Jenkins Dashboard
+![Jenkins](screenshots/jenkins.png)
